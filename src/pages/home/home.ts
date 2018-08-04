@@ -36,7 +36,7 @@ export class HomePage {
   courses: Observable<any>;
   course:any;
   currentGPA:any;
-  targetGPA:any;
+  creditPoints:any;
   studentNumber:string;
   selectedCourse:any;
   courseProfile = 82444;
@@ -45,13 +45,13 @@ export class HomePage {
 
   }
   pullClasses(){
-    if (this.currentGPA >= this.targetGPA || this.currentGPA > 7 || this.targetGPA > 7){
-        alert("Invalid information");
-    }
-    else{
-      this.navCtrl.push(CoursePage, {course: this.course, currentGPA: this.currentGPA, studentNumber: this.studentNumber, targetGPA: this.targetGPA});
-    }
-
+    // if (this.currentGPA >= this.targetGPA || this.currentGPA > 7 || this.targetGPA > 7){
+    //     alert("Invalid information");
+    // }
+    // else{
+    //   this.navCtrl.push(CoursePage, {course: this.course, currentGPA: this.currentGPA, studentNumber: this.studentNumber, targetGPA: this.targetGPA});
+    // }
+    this.navCtrl.push(CoursePage, {course: this.course, currentGPA: this.currentGPA, studentNumber: this.studentNumber, creditPoints: this.creditPoints});
 
   }
 }
