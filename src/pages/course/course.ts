@@ -15,6 +15,8 @@ import { HttpClient } from '@angular/common/http';
   templateUrl: 'course.html',
 })
 export class CoursePage {
+  courses: Observable<any>;
+
   programList = [
     {
        CourseCode: '1014SCG',
