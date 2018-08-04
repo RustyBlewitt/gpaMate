@@ -1,0 +1,38 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Ionic Blank
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-item>
+    <ion-input placeholder="Enter Student Number: "></ion-input>
+  </ion-item>
+
+  <ion-item>
+
+    <ion-input type="number" [(ngModel)]="currentGPA" placeholder="Enter Current GPA:     eg. 4.5 "></ion-input>
+
+
+
+  </ion-item>
+
+  <ion-item>
+    <ion-input type="number" [(ngModel)]="targetGPA" placeholder="Enter Target GPA: "></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Course</ion-label>
+    <ion-select [(ngModel)]="course">
+      <ion-option value="1534">B. Computer Science</ion-option>
+
+      <ion-option value="m">B. Information Technology</ion-option>
+    </ion-select>
+  </ion-item>
+
+  <button ion-button full (click)="pullClasses()">
+   Submit
+  </button>
+</ion-content>
