@@ -1,4 +1,4 @@
-webpackJsonp([1],{
+webpackJsonp([5],{
 
 /***/ 101:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
@@ -55,9 +55,11 @@ var CoursePage = /** @class */ (function () {
             }
         ];
         this.assessmentList = [];
+        this.creditPoints = 0;
         this.currentCourse = this.navParams.get('course');
         this.currentGPA = this.navParams.get('currentGPA');
-        this.targetGPA = this.navParams.get('targetGPA');
+        this.creditPoints = this.navParams.get('creditPoints');
+        this.updatedGPA = this.currentGPA;
         var _loop_1 = function (i) {
             //console.log(this.programList[i].Profile);
             this_1.courses = this_1.httpClient.get('https://courseprofile.secure.griffith.edu.au/service/student-course-json.php?profileId=' + this_1.programList[i].Profile);
@@ -85,18 +87,26 @@ var CoursePage = /** @class */ (function () {
             CourseCode: course_code,
             Assessment: data
         });
-        console.log(data);
+        //console.log(data);
     };
     CoursePage.prototype.ionViewDidLoad = function () {
         //alert(this.currentGPA);
     };
+    CoursePage.prototype.updateCalculation = function (somenumber) {
+        //this.updatedGPA =
+        console.log(somenumber);
+    };
+    CoursePage.prototype.goToCoursePage = function (test) {
+        console.log(test);
+    };
     CoursePage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-course',template:/*ion-inline-start:"/Users/codielittle/Desktop/hackathon/gpaMate/src/pages/course/course.html"*/'<!--\n  Generated template for the CoursePage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>{{ currentCourse }}</ion-title>\n\n\n  </ion-navbar>\n\n\n</ion-header>\n\n\n<ion-content padding>\n      <h3>Current GPA: {{ currentGPA }}</h3>\n      <h3>Target GPA{{ targetGPA }}</h3>\n      <ion-list>\n          <ion-item *ngFor="let assessment of assessmentList" class="listTest">\n            <h4><b>Course Name: </b>{{assessment.CourseName}}</h4>\n\n            <h4><b>Course Code:</b> {{assessment.CourseCode}}</h4>\n\n            <ion-list>\n                <ion-item *ngFor="let item of assessment.Assessment">\n\n                  <div>\n                    {{ item }}\n                  </div>\n                  \n\n                </ion-item>\n              </ion-list>\n\n          </ion-item>\n        </ion-list>\n  <!-- <button ion-button full (click) ="addNewCourse()"><ion-icon name="add"></ion-icon></button> -->\n\n</ion-content>\n'/*ion-inline-end:"/Users/codielittle/Desktop/hackathon/gpaMate/src/pages/course/course.html"*/,
+            selector: 'page-course',template:/*ion-inline-start:"/Users/codielittle/Desktop/hackathon/gpaMate/src/pages/course/course.html"*/'<!--\n  Generated template for the CoursePage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>{{ currentCourse }}</ion-title>\n\n\n  </ion-navbar>\n\n\n</ion-header>\n\n\n<ion-content padding>\n      <h3>Current GPA: {{ currentGPA }}</h3>\n      <h3>Total Credit Points: {{ creditPoints }}</h3>\n      <ion-list>\n          <!-- list 4 courses, on click, new page will be pushed that has individual course information -->\n          <ion-item *ngFor="let assessment of assessmentList" class="listTest" (click)=\'goToCoursePage(assessment.CourseName)\'>\n\n\n              <h4><b>Course Name: </b>{{assessment.CourseName}}</h4>\n\n              <h4><b>Course Code:</b> {{assessment.CourseCode}}</h4>\n                   <!-- <input [(ngModel)] = "assessment.expectedGrade" (ionChange)="updateCalculation()" type = "number" placeholder = "Enter Expected Grade: " /> -->\n                   <!-- <ion-input type="number" [(ngModel)]="expectedGrade" placeholder="Enter Expected Grade: "></ion-input> -->\n              <ion-item>\n              <ion-input type="number" [(ngModel)]=\'assessment.expectedGrade\' (ionChange)=\'updateCalculation(assessment.expectedGrade)\' placeholder="Enter Expected Grade"></ion-input>\n              </ion-item>\n\n\n            <!-- <ion-list>\n                <ion-item *ngFor="let item of assessment.Assessment">\n\n                  <div>\n                    {{ item[2] }}\n                  </div>\n\n\n                </ion-item>\n              </ion-list> -->\n\n\n          </ion-item>\n        </ion-list>\n        Updated GPA: {{ updatedGPA }}\n  <!-- <button ion-button full (click) ="addNewCourse()"><ion-icon name="add"></ion-icon></button> -->\n\n</ion-content>\n'/*ion-inline-end:"/Users/codielittle/Desktop/hackathon/gpaMate/src/pages/course/course.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2__angular_common_http__["a" /* HttpClient */]])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__angular_common_http__["a" /* HttpClient */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_common_http__["a" /* HttpClient */]) === "function" && _c || Object])
     ], CoursePage);
     return CoursePage;
+    var _a, _b, _c;
 }());
 
 //# sourceMappingURL=course.js.map
@@ -126,6 +136,22 @@ webpackEmptyAsyncContext.id = 113;
 var map = {
 	"../pages/course/course.module": [
 		276,
+		4
+	],
+	"../pages/page-four/page-four.module": [
+		277,
+		3
+	],
+	"../pages/page-one/page-one.module": [
+		278,
+		2
+	],
+	"../pages/page-three/page-three.module": [
+		279,
+		1
+	],
+	"../pages/page-two/page-two.module": [
+		280,
 		0
 	]
 };
@@ -199,16 +225,17 @@ var HomePage = /** @class */ (function () {
         this.courseProfile = 82444;
     }
     HomePage.prototype.pullClasses = function () {
-        if (this.currentGPA >= this.targetGPA || this.currentGPA > 7 || this.targetGPA > 7) {
-            alert("Invalid information");
-        }
-        else {
-            this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_3__course_course__["a" /* CoursePage */], { course: this.course, currentGPA: this.currentGPA, studentNumber: this.studentNumber, targetGPA: this.targetGPA });
-        }
+        // if (this.currentGPA >= this.targetGPA || this.currentGPA > 7 || this.targetGPA > 7){
+        //     alert("Invalid information");
+        // }
+        // else{
+        //   this.navCtrl.push(CoursePage, {course: this.course, currentGPA: this.currentGPA, studentNumber: this.studentNumber, targetGPA: this.targetGPA});
+        // }
+        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_3__course_course__["a" /* CoursePage */], { course: this.course, currentGPA: this.currentGPA, studentNumber: this.studentNumber, creditPoints: this.creditPoints });
     };
     HomePage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-home',template:/*ion-inline-start:"/Users/codielittle/Desktop/hackathon/gpaMate/src/pages/home/home.html"*/'<ion-header>\n  <ion-navbar>\n    <ion-title>\n      Ionic Blank\n    </ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding>\n  <ion-item>\n    <ion-input placeholder="Enter Student Number: "></ion-input>\n  </ion-item>\n\n  <ion-item>\n\n    <ion-input type="number" [(ngModel)]="currentGPA" placeholder="Enter Current GPA:     eg. 4.5 "></ion-input>\n\n\n\n  </ion-item>\n\n  <ion-item>\n    <ion-input type="number" [(ngModel)]="targetGPA" placeholder="Enter Target GPA: "></ion-input>\n  </ion-item>\n\n  <ion-item>\n    <ion-label>Course</ion-label>\n    <ion-select [(ngModel)]="course">\n      <ion-option value="1534">B. Computer Science</ion-option>\n\n      <ion-option value="m">B. Information Technology</ion-option>\n    </ion-select>\n  </ion-item>\n\n  <button ion-button full (click)="pullClasses()">\n   Submit\n  </button>\n</ion-content>\n'/*ion-inline-end:"/Users/codielittle/Desktop/hackathon/gpaMate/src/pages/home/home.html"*/
+            selector: 'page-home',template:/*ion-inline-start:"/Users/codielittle/Desktop/hackathon/gpaMate/src/pages/home/home.html"*/'<ion-header>\n  <ion-navbar>\n    <ion-title>\n      Ionic Blank\n    </ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding>\n  <ion-item>\n    <ion-input placeholder="Enter Student Number: "></ion-input>\n  </ion-item>\n\n  <ion-item>\n\n    <ion-input type="number" [(ngModel)]="currentGPA" placeholder="Enter Current GPA:     eg. 4.5 "></ion-input>\n\n\n\n  </ion-item>\n\n  <ion-item>\n    <ion-input type="number" [(ngModel)]="creditPoints" placeholder="Enter Credit Points Completed: "></ion-input>\n  </ion-item>\n\n  <ion-item>\n    <ion-label>Course</ion-label>\n    <ion-select [(ngModel)]="course">\n      <ion-option value="1534">B. Computer Science</ion-option>\n\n      <ion-option value="m">B. Information Technology</ion-option>\n    </ion-select>\n  </ion-item>\n\n  <button ion-button full (click)="pullClasses()">\n   Submit\n  </button>\n</ion-content>\n'/*ion-inline-end:"/Users/codielittle/Desktop/hackathon/gpaMate/src/pages/home/home.html"*/
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavController */], __WEBPACK_IMPORTED_MODULE_2__angular_common_http__["a" /* HttpClient */]])
     ], HomePage);
@@ -277,7 +304,11 @@ var AppModule = /** @class */ (function () {
                 __WEBPACK_IMPORTED_MODULE_5__angular_common_http__["b" /* HttpClientModule */],
                 __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["c" /* IonicModule */].forRoot(__WEBPACK_IMPORTED_MODULE_6__app_component__["a" /* MyApp */], {}, {
                     links: [
-                        { loadChildren: '../pages/course/course.module#CoursePageModule', name: 'CoursePage', segment: 'course', priority: 'low', defaultHistory: [] }
+                        { loadChildren: '../pages/course/course.module#CoursePageModule', name: 'CoursePage', segment: 'course', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/page-four/page-four.module#PageFourPageModule', name: 'PageFourPage', segment: 'page-four', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/page-one/page-one.module#PageOnePageModule', name: 'PageOnePage', segment: 'page-one', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/page-three/page-three.module#PageThreePageModule', name: 'PageThreePage', segment: 'page-three', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/page-two/page-two.module#PageTwoPageModule', name: 'PageTwoPage', segment: 'page-two', priority: 'low', defaultHistory: [] }
                     ]
                 })
             ],

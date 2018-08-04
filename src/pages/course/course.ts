@@ -42,12 +42,13 @@ export class CoursePage {
   assessmentList =[];
   public currentCourse:string;
   public currentGPA:string;
-  public targetGPA:string;
+  public creditPoints = 0;
+  public updatedGPA:any;
   constructor(public navCtrl: NavController, public navParams: NavParams, public httpClient: HttpClient) {
     this.currentCourse = this.navParams.get('course');
     this.currentGPA = this.navParams.get('currentGPA');
-    this.targetGPA = this.navParams.get('targetGPA');
-
+    this.creditPoints = this.navParams.get('creditPoints');
+    this.updatedGPA = this.currentGPA;
 
     for (let i = 0;i<4;i++){
       //console.log(this.programList[i].Profile);
@@ -73,10 +74,19 @@ export class CoursePage {
         Assessment: data
 
     });
-    console.log(data);
+    //console.log(data);
   }
   ionViewDidLoad() {
       //alert(this.currentGPA);
+  }
+  updateCalculation(somenumber: any){
+    //this.updatedGPA =
+    console.log(somenumber);
+
+  }
+  goToCoursePage(test: any){
+    console.log(test);
+
   }
 
 
