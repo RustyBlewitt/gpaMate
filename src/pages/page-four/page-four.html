@@ -7,12 +7,22 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>pageFour</ion-title>
+    <ion-title>1801ICT - Programming Languages</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
+
+    <ion-item *ngFor="let item of courseData" (click)="getExpectedResult()">
+      {{ item[0]}}
+      <br>
+      Weight: {{ item[2]}}
+
+
+
+
+    </ion-item>
 
 </ion-content>

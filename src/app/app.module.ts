@@ -9,20 +9,27 @@ import { HttpClientModule } from '@angular/common/http';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { CoursePage } from '../pages/course/course';
+import { PageFourPage } from '../pages/page-four/page-four';
+import { PageThreePage } from '../pages/page-three/page-three';
+import { PageTwoPage } from '../pages/page-two/page-two';
+import { PageOnePage } from '../pages/page-one/page-one';
 
 
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
-    CoursePage
+    CoursePage,
+    PageFourPage,
+    PageThreePage,
+    PageTwoPage,
+    PageOnePage
   ],
   imports: [
     BrowserModule,
-
     HttpClientModule,
 
-    
+
 
     IonicModule.forRoot(MyApp)
   ],
@@ -30,7 +37,11 @@ import { CoursePage } from '../pages/course/course';
   entryComponents: [
     MyApp,
     HomePage,
-    CoursePage
+    CoursePage,
+    PageFourPage,
+    PageTwoPage,
+    PageThreePage,
+    PageOnePage
   ],
   providers: [
     StatusBar,

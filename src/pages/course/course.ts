@@ -2,6 +2,11 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Observable } from 'rxjs/Observable';
 import { HttpClient } from '@angular/common/http';
+import { PageFourPage } from '../page-four/page-four';
+import { PageThreePage } from '../page-three/page-three';
+import { PageTwoPage } from '../page-two/page-two';
+import { PageOnePage } from '../page-one/page-one';
+
 /**
  * Generated class for the CoursePage page.
  *
@@ -80,12 +85,25 @@ export class CoursePage {
       //alert(this.currentGPA);
   }
   updateCalculation(somenumber: any){
-    //this.updatedGPA =
-    console.log(somenumber);
+    var totalGPA = eval(this.updatedGPA * this.creditPoints) + eval(somenumber);
+    this.updatedGPA = totalGPA / (eval(this.creditPoints)+1);
+    console.log(this.updatedGPA);
 
   }
-  goToCoursePage(test: any){
-    console.log(test);
+  goToCoursePage(selected: any){
+    if (selected == "1801ICT"){
+      this.navCtrl.push(PageFourPage, {data: this.assessmentList[2].Assessment});
+    }
+    else if(selected == "1010ENG"){
+      this.navCtrl.push(PageThreePage);
+    }
+    else if(selected == "1014SCG"){
+      this.navCtrl.push(PageTwoPage);
+    }
+    else if(selected == "1808ICT"){
+      this.navCtrl.push(PageOnePage);
+
+    }
 
   }
 

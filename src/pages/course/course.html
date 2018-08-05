@@ -7,7 +7,7 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>{{ currentCourse }}</ion-title>
+    <ion-title>Course Code: {{ currentCourse }}</ion-title>
 
 
   </ion-navbar>
@@ -19,36 +19,28 @@
 <ion-content padding>
       <h3>Current GPA: {{ currentGPA }}</h3>
       <h3>Total Credit Points: {{ creditPoints }}</h3>
-      <ion-list>
-          <!-- list 4 courses, on click, new page will be pushed that has individual course information -->
-          <ion-item *ngFor="let assessment of assessmentList" class="listTest" (click)='goToCoursePage(assessment.CourseName)'>
+      <br>
+      Updated GPA: {{ updatedGPA }}
 
 
-              <h4><b>Course Name: </b>{{assessment.CourseName}}</h4>
+        <ion-list>
+           <ion-item *ngFor="let assessment of assessmentList">
 
-              <h4><b>Course Code:</b> {{assessment.CourseCode}}</h4>
-                   <!-- <input [(ngModel)] = "assessment.expectedGrade" (ionChange)="updateCalculation()" type = "number" placeholder = "Enter Expected Grade: " /> -->
-                   <!-- <ion-input type="number" [(ngModel)]="expectedGrade" placeholder="Enter Expected Grade: "></ion-input> -->
-              <ion-item>
-              <ion-input type="number" [(ngModel)]='assessment.expectedGrade' (ionChange)='updateCalculation(assessment.expectedGrade)' placeholder="Enter Expected Grade"></ion-input>
-              </ion-item>
+                <ion-card>
+                  <ion-card-content (click)='goToCoursePage(assessment.CourseName)'>
+                      Course Name: {{assessment.CourseName}}
+                  </ion-card-content>
+                  <ion-card-content (click)='goToCoursePage(assessment.CourseName)'>
+                      Course Code: {{assessment.CourseCode}}
+                  </ion-card-content>
+                  <ion-item>
+                    <ion-input type="number" [(ngModel)]='assessment.expectedGrade' (ionChange)='updateCalculation(assessment.expectedGrade)' placeholder="Enter Expected Grade"></ion-input>
 
+                  </ion-item>
 
-            <!-- <ion-list>
-                <ion-item *ngFor="let item of assessment.Assessment">
-
-                  <div>
-                    {{ item[2] }}
-                  </div>
-
-
-                </ion-item>
-              </ion-list> -->
-
-
+                </ion-card>
           </ion-item>
         </ion-list>
-        Updated GPA: {{ updatedGPA }}
   <!-- <button ion-button full (click) ="addNewCourse()"><ion-icon name="add"></ion-icon></button> -->
 
 </ion-content>

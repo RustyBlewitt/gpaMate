@@ -3,7 +3,7 @@ import { NavController, ModalController, NavParams, AlertController} from 'ionic
 import { Observable } from 'rxjs/Observable';
 import { HttpClient } from '@angular/common/http';
 import { CoursePage } from '../course/course';
-
+//import { PageFourPage } from '../pagefour'
 import 'rxjs/add/operator/map';
 
 @Component({
